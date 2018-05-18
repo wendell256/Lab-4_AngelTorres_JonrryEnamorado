@@ -203,7 +203,7 @@ public class Lab4_AngelTorres_JonrryEnamorado {
                                     y2 = sc.nextInt();
                                 }
                             tmp.mover(x1, y1, t, x2, y2, Color.BLACK);
-
+                            
                             break;
                     }
 
