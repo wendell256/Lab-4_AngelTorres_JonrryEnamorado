@@ -12,7 +12,8 @@ public class Lab4_AngelTorres_JonrryEnamorado {
         Scanner sc = new Scanner(System.in);
         ArrayList<Jugadores> jugador = new ArrayList();
         int menu = -1;
-
+        Jugadores j1 = new Jugadores();
+        Jugadores j2 = new Jugadores();
         //try {//Try-Catch menú principal
         do {
             sc = new Scanner(System.in);
@@ -113,17 +114,28 @@ public class Lab4_AngelTorres_JonrryEnamorado {
                     int pos1,
                      pos2;
                     System.out.println("Nueva partida\n");
-
-                    System.out.println("Ingrese posición jugador 1: ");
-                    pos1 = sc.nextInt();
-
-                    System.out.println("Ingrese posición jugador 2");
-                    pos2 = sc.nextInt();
-
+                    int cont = 0;
+                    for (int i = 0; i < jugador.size(); i++) {
+                        cont++;
+                        Jugadores j = jugador.get(i);
+                        System.out.println(cont + ")" + j.getNombre());
+                    }
+                    System.out.println("Ingrese Posicion Jugador 1:");
+                    sc = new Scanner(System.in);
+                    int opc = sc.nextInt();
+                    opc--;
+                    j1 = jugador.get(opc);
+                    System.out.println("Ingrese Poosicion Jugador 2:");
+                    sc = new Scanner(System.in);
+                    opc = sc.nextInt();
+                    opc--;
+                    j2 = jugador.get(opc);
+                    System.out.println(j1);
+                    System.out.println(j2);
                     break;
 
                 case 3:
-
+                    
                     break;
 
             }

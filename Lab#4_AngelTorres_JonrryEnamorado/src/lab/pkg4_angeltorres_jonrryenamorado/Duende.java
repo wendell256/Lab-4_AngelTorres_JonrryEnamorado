@@ -20,6 +20,8 @@ public class Duende extends Piezas {
         super(color);
     }
     
-    
+    public void mover (int x, int y, Tablero t, int x2, int y2){
+        
+    }
     
 }
