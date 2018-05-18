@@ -111,6 +111,7 @@ public class Lab4_AngelTorres_JonrryEnamorado {
                     break;
 
                 case 2:
+                    boolean v=true;
                     int pos1,
                      pos2;
                     System.out.println("Nueva partida\n");
@@ -120,18 +121,40 @@ public class Lab4_AngelTorres_JonrryEnamorado {
                         Jugadores j = jugador.get(i);
                         System.out.println(cont + ")" + j.getNombre());
                     }
-                    System.out.println("Ingrese Posicion Jugador 1:");
-                    sc = new Scanner(System.in);
-                    int opc = sc.nextInt();
-                    opc--;
-                    j1 = jugador.get(opc);
-                    System.out.println("Ingrese Poosicion Jugador 2:");
-                    sc = new Scanner(System.in);
-                    opc = sc.nextInt();
-                    opc--;
-                    j2 = jugador.get(opc);
+                    
+                    
+                    while (v){
+                    try{
+                        System.out.println("Ingrese Posicion Jugador 1:");
+                        sc = new Scanner(System.in);
+                        int opc = sc.nextInt();
+                        opc--;
+                        j1 = jugador.get(opc);
+                        v=false;
+                    }catch(Exception e1){
+                        System.out.println("Debe ingresar un entero");
+                        v=true;
+                    }
+                    }
+                    v=true;
+                    while(v){
+                    try{
+                        System.out.println("Ingrese Poosicion Jugador 2:");
+                        sc = new Scanner(System.in);
+                        int opc = sc.nextInt();
+                        opc--;
+                        j2 = jugador.get(opc);
+                        v=false;
+                    } catch(Exception e2){
+                        System.out.println("Debe ingresar un entero");
+                        v=true;
+                    }
+                    }
                     System.out.println(j1);
                     System.out.println(j2);
+                    
+                    
+                    
                     break;
 
                 case 3:
