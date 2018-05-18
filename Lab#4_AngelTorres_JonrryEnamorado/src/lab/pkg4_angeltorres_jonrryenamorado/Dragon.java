@@ -44,4 +44,7 @@ public class Dragon extends Piezas {
         }
             return false;
     }
+ public int comer(int x, int y, Tablero t, int x2, int y2, Color c, int p) {
+        
+    }
 }

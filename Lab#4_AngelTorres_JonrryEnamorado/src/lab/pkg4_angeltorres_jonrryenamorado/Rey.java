@@ -24,5 +24,8 @@ public class Rey extends Piezas{
     public void mover(int x, int y, Tablero t, int x2, int y2, Color c) {
         System.out.println("Esta pieza no se puede mover");
     }
+    public int comer(int x, int y, Tablero t, int x2, int y2, Color c, int p) {
+       return 0; 
+    }
     
 }
