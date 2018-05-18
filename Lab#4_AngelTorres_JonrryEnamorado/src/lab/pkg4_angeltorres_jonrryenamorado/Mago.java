@@ -19,5 +19,10 @@ public class Mago extends Piezas{
 
     public Mago() {
     }
+
+    @Override
+    public void mover(int x, int y, Tablero t, int x2, int y2, Color c) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

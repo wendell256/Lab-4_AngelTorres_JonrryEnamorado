@@ -24,5 +24,10 @@ public class Caballeros extends Piezas{
     public Caballeros(Color color) {
         super(color);
     }
+
+    @Override
+    public void mover(int x, int y, Tablero t, int x2, int y2, Color c) {
+        
+    }
     
 }

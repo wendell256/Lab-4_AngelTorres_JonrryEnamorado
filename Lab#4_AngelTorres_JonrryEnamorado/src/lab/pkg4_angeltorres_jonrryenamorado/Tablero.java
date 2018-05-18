@@ -14,8 +14,8 @@ import java.util.ArrayList;
  */
 public class Tablero {
 
-    private String[][] tvisible;
-    private Object[][] tablero;
+    public String[][] tvisible;
+    public Object[][] tablero;
     private ArrayList Blancas;
     private ArrayList Negras;
 
@@ -154,6 +154,8 @@ public class Tablero {
                     case "DB":
                         tablero[i][j] = new Duende(Color.WHITE);
                         break;
+                    default:
+                        tablero[i][j] = "0";
                         
                 }
             }

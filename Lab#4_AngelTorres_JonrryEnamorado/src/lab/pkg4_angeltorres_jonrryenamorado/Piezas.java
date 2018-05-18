@@ -11,7 +11,7 @@ import java.awt.Color;
  *
  * @author wende
  */
-public class Piezas {
+public abstract class Piezas {
     protected Color color;
     protected String material;
 
@@ -48,6 +48,7 @@ public class Piezas {
     public String toString() {
         return "Piezas{" + "color=" + color + ", material=" + material + '}';
     }
+    public abstract void mover(int x, int y, Tablero t, int x2, int y2, Color c);
     
     
 }
