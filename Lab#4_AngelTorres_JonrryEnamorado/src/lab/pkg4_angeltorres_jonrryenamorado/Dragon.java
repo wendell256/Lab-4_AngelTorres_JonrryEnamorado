@@ -34,7 +34,9 @@ public class Dragon extends Piezas {
         }
         t.tablero[x2][y2] = t.tablero[x][y];
         t.tablero[x][y] = "0";
-
+        String tmp = t.tvisible[x][y];
+        t.tvisible[x2][y2] = tmp;
+        t.tvisible[x][y] = "__";
     }
  public boolean validar(int x, int y, int x2, int y2){
         if(Math.abs(x - x2) == Math.abs(y - y2)){

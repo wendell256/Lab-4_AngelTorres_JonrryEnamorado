@@ -160,6 +160,7 @@ public class Lab4_AngelTorres_JonrryEnamorado {
                     int turno = 0;
                     switch (turno) {
                         case 0:
+                            t.print();
                             Piezas tmp = new Duende();
                             System.out.println(j1.getNombre() + " Ingrese la posicion x de pieza a mover:");
                             x1 = sc.nextInt();
@@ -203,7 +204,7 @@ public class Lab4_AngelTorres_JonrryEnamorado {
                                     y2 = sc.nextInt();
                                 }
                             tmp.mover(x1, y1, t, x2, y2, Color.BLACK);
-                            
+                            t.print();
                             break;
                     }
 
