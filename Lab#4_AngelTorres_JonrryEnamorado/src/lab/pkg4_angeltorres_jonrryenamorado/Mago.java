@@ -5,10 +5,19 @@
  */
 package lab.pkg4_angeltorres_jonrryenamorado;
 
+import java.awt.Color;
+
 /**
  *
  * @author wende
  */
 public class Mago extends Piezas{
+
+    public Mago(Color color) {
+        super(color);
+    }
+
+    public Mago() {
+    }
     
 }

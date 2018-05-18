@@ -20,5 +20,9 @@ public class Caballeros extends Piezas{
     public Caballeros(Color color, String material) {
         super(color, material);
     }
+
+    public Caballeros(Color color) {
+        super(color);
+    }
     
 }

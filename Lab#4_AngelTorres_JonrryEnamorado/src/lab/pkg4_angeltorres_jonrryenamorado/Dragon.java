@@ -5,10 +5,19 @@
  */
 package lab.pkg4_angeltorres_jonrryenamorado;
 
+import java.awt.Color;
+
 /**
  *
  * @author wende
  */
 public class Dragon extends Piezas{
+
+    public Dragon() {
+    }
+
+    public Dragon(Color color) {
+        super(color);
+    }
     
 }

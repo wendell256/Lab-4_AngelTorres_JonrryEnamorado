@@ -18,6 +18,10 @@ public class Piezas {
     public Piezas() {
     }
 
+    public Piezas(Color color) {
+        this.color = color;
+    }
+
     
     public Piezas(Color color, String material) {
         this.color = color;

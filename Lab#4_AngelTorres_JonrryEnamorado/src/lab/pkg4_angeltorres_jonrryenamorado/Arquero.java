@@ -5,10 +5,19 @@
  */
 package lab.pkg4_angeltorres_jonrryenamorado;
 
+import java.awt.Color;
+
 /**
  *
  * @author wende
  */
 public class Arquero extends Piezas{
+
+    public Arquero() {
+    }
+
+    public Arquero(Color color) {
+        super(color);
+    }
     
 }

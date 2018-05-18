@@ -5,11 +5,20 @@
  */
 package lab.pkg4_angeltorres_jonrryenamorado;
 
+import java.awt.Color;
+
 /**
  *
  * @author wende
  */
 public class Duende extends Piezas {
+
+    public Duende() {
+    }
+
+    public Duende(Color color) {
+        super(color);
+    }
     
     
     

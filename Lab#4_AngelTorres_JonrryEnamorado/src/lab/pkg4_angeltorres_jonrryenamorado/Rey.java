@@ -5,10 +5,19 @@
  */
 package lab.pkg4_angeltorres_jonrryenamorado;
 
+import java.awt.Color;
+
 /**
  *
  * @author wende
  */
 public class Rey extends Piezas{
+
+    public Rey() {
+    }
+
+    public Rey(Color color) {
+        super(color);
+    }
     
 }
