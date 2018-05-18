@@ -15,17 +15,17 @@ public class Jugadores {
     private String nombre;
     private String id;
     private int puntos;
-    private Date birth;
+    private String birth;
     private int edad;
     private String sex;
 
     public Jugadores() {
     }
 
-    public Jugadores(String nombre, String id, int puntos, Date birth, int edad, String sex) {
+    public Jugadores(String nombre, String id, String birth, int edad, String sex) {
         this.nombre = nombre;
         this.id = id;
-        this.puntos = puntos;
+        puntos = 0;
         this.birth = birth;
         this.edad = edad;
         this.sex = sex;
@@ -55,11 +55,11 @@ public class Jugadores {
         this.puntos = puntos;
     }
 
-    public Date getBirth() {
+    public String getBirth() {
         return birth;
     }
 
-    public void setBirth(Date birth) {
+    public void setBirth(String birth) {
         this.birth = birth;
     }
 
