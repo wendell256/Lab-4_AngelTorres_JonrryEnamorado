@@ -48,7 +48,18 @@ public class Caballeros extends Piezas{
             return false;
     }
     
+    @Override
     public int comer(int x, int y, Tablero t, int x2, int y2, Color c, int p) {
-        
+        if (c == Color.BLACK) {
+            if (!validar(x, y, x2, y2)) {
+                return 0;
+            } else if (((Caballeros) t.tablero[x2][y2]).getColor() != ((Caballeros) t.tablero[x][y]).getColor()) {
+                return 1;
+            } else {
+                return 0;
+            }
+
+        }
+        return 0;
     }
 }

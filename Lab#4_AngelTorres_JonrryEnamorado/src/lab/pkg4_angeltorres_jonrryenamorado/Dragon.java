@@ -24,7 +24,7 @@ public class Dragon extends Piezas {
 
     @Override
     public void mover(int x, int y, Tablero t, int x2, int y2, Color c) {
-        while (!validar(x,y,x2,y2)) {
+        while (!validar(x, y, x2, y2)) {
             System.out.println("Posicion No valida para mover");
             System.out.println("Ingrese x a mover pieza: ");
             x2 = sc.nextInt();
@@ -38,13 +38,27 @@ public class Dragon extends Piezas {
         t.tvisible[x2][y2] = tmp;
         t.tvisible[x][y] = "__";
     }
- public boolean validar(int x, int y, int x2, int y2){
-        if(Math.abs(x - x2) == Math.abs(y - y2)){
+
+    public boolean validar(int x, int y, int x2, int y2) {
+        if (Math.abs(x - x2) == Math.abs(y - y2)) {
             return true;
         }
-            return false;
+        return false;
     }
- public int comer(int x, int y, Tablero t, int x2, int y2, Color c, int p) {
-        
+
+    @Override
+    public int comer(int x, int y, Tablero t, int x2, int y2, Color c, int p) {
+        if (c == Color.BLACK) {
+            if (!validar(x, y, x2, y2)) {
+                return 0;
+            } else if (((Dragon) t.tablero[x2][y2]).getColor() != ((Dragon) t.tablero[x][y]).getColor()) {
+                return 1;
+            } else {
+                return 0;
+            }
+
+        }
+        return 0;
     }
+    
 }

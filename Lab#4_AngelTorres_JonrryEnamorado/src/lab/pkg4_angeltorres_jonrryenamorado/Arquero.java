@@ -24,7 +24,7 @@ public class Arquero extends Piezas {
 
     @Override
     public void mover(int x, int y, Tablero t, int x2, int y2, Color c) {
-        while (!validar(x,y,x2,y2)) {
+        while (!validarn(x,y,x2,y2)) {
             System.out.println("Posicion No valida para mover");
             System.out.println("Ingrese x a mover pieza: ");
             x2 = sc.nextInt();
@@ -37,15 +37,26 @@ public class Arquero extends Piezas {
         t.tvisible[x2][y2] = tmp;
         t.tvisible[x][y] = "__";
     }
-    public boolean validar(int x, int y, int x2, int y2){
+    public boolean validarn(int x, int y, int x2, int y2){
         if((x == x2) || (y == y2) || (Math.abs(x - x2) == Math.abs(y - y2))){
             return true;
         }
             return false;
     }
     
+    @Override
     public int comer(int x, int y, Tablero t, int x2, int y2, Color c, int p) {
-        
+        if (c == Color.BLACK) {
+            if (!validarn(x, y, x2, y2)) {
+                return 0;
+            } else if (((Arquero) t.tablero[x2][y2]).getColor() != ((Arquero) t.tablero[x][y]).getColor()) {
+                return 1;
+            } else {
+                return 0;
+            }
+
+        }
+        return 0;
     }
 
 }
