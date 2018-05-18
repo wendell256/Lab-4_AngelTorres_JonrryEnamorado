@@ -22,7 +22,7 @@ public class Rey extends Piezas{
 
     @Override
     public void mover(int x, int y, Tablero t, int x2, int y2, Color c) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("Esta pieza no se puede mover");
     }
     
 }

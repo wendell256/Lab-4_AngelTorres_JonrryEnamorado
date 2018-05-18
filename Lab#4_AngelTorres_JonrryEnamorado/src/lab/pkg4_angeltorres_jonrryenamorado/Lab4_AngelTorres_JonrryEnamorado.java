@@ -201,7 +201,6 @@ public class Lab4_AngelTorres_JonrryEnamorado {
                                     x2 = sc.nextInt();
                                     System.out.println(j1.getNombre() + " Ingrese la posicion y de pieza a mover:");
                                     y2 = sc.nextInt();
-                                    verpos1 = true;
                                 }
                             tmp.mover(x1, y1, t, x2, y2, Color.BLACK);
 
