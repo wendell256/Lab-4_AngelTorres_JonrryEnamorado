@@ -12,12 +12,14 @@ import java.util.ArrayList;
  * @author wende
  */
 public class Tablero {
+    private String[][] tvisible;
     private String[][] tablero;
     private ArrayList Blancas;
     private ArrayList Negras;
 
     public Tablero() {
     tablero = new String[10][10];
+    tvisible = new String[10][10];
     //agregar piezas
     Blancas.add(new Caballeros());
     Blancas.add(new Caballeros());
@@ -61,7 +63,12 @@ public class Tablero {
     //
     Negras.add(new Rey());
     }
-
+    
+    public void colocar(){
+        tvisible[0][0] = "C";
+        
+    }
+    
     @Override
     public String toString() {
         return "Tablero{" + "tablero=" + tablero + ", Blancas=" + Blancas + ", Negras=" + Negras + '}';
