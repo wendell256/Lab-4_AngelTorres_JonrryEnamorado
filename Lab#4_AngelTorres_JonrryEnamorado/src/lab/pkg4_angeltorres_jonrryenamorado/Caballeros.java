@@ -42,7 +42,7 @@ public class Caballeros extends Piezas{
         t.tvisible[x][y] = "__";
     }
     public boolean validar(int x, int y, int x2, int y2){
-        if(((x==x2) && (Math.abs(x2-x) == 1) || ((y==y2)&& (Math.abs(y2-y) == 1)))){
+        if(((x==x2) && (Math.abs(y2-y) == 1) || ((y==y2)&& (Math.abs(x2-x) == 1)))){
             return true;
         }
             return false;
@@ -50,7 +50,6 @@ public class Caballeros extends Piezas{
     
     @Override
     public int comer(int x, int y, Tablero t, int x2, int y2, Color c, int p) {
-        if (c == Color.BLACK) {
             if (!validar(x, y, x2, y2)) {
                 return 0;
             } else if (((Caballeros) t.tablero[x2][y2]).getColor() != ((Caballeros) t.tablero[x][y]).getColor()) {
@@ -59,7 +58,5 @@ public class Caballeros extends Piezas{
                 return 0;
             }
 
-        }
-        return 0;
     }
 }

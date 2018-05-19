@@ -118,158 +118,161 @@ public class Lab4_AngelTorres_JonrryEnamorado {
                     int pos1,
                      pos2;
                     System.out.println("Nueva partida\n");
-                    int cont = 0;
-                    for (int i = 0; i < jugador.size(); i++) {
-                        cont++;
-                        Jugadores j = jugador.get(i);
-                        System.out.println(cont + ")" + j.getNombre());
-                    }
+                    if (jugador.isEmpty()) {
+                        System.out.println("ERROR NO HAY JUGADORES");
+                    } else {
+                        int cont = 0;
+                        for (int i = 0; i < jugador.size(); i++) {
+                            cont++;
+                            Jugadores j = jugador.get(i);
+                            System.out.println(cont + ")" + j.getNombre());
+                        }
 
-                    while (v) {
-                        try {
-                            System.out.println("Ingrese Posicion Jugador 1:");
-                            sc = new Scanner(System.in);
-                            int opc = sc.nextInt();
-                            opc--;
-                            j1 = jugador.get(opc);
-                            v = false;
-                        } catch (Exception e1) {
-                            System.out.println("Debe ingresar un entero");
-                            v = true;
+                        while (v) {
+                            try {
+                                System.out.println("Ingrese Posicion Jugador 1:");
+                                sc = new Scanner(System.in);
+                                int opc = sc.nextInt();
+                                opc--;
+                                j1 = jugador.get(opc);
+                                v = false;
+                            } catch (Exception e1) {
+                                System.out.println("Debe ingresar un entero");
+                                v = true;
+                            }
                         }
-                    }
-                    v = true;
-                    while (v) {
-                        try {
-                            System.out.println("Ingrese Poosicion Jugador 2:");
-                            sc = new Scanner(System.in);
-                            int opc = sc.nextInt();
-                            opc--;
-                            j2 = jugador.get(opc);
-                            v = false;
-                        } catch (Exception e2) {
-                            System.out.println("Debe ingresar un entero");
-                            v = true;
+                        v = true;
+                        while (v) {
+                            try {
+                                System.out.println("Ingrese Poosicion Jugador 2:");
+                                sc = new Scanner(System.in);
+                                int opc = sc.nextInt();
+                                opc--;
+                                j2 = jugador.get(opc);
+                                v = false;
+                            } catch (Exception e2) {
+                                System.out.println("Debe ingresar un entero");
+                                v = true;
+                            }
                         }
-                    }
-                    Tablero t = new Tablero(j1, j2);
-                    t.colocar();
-                    sc = new Scanner(System.in);
-                    int x1,
-                     x2,
-                     y1,
-                     y2;
-                    int turno = 0;
-                    char resp = 's';
-                    while (resp == 's' || resp == 'S') {
-                        switch (turno) {
-                            case 0:
-                                t.print();
-                                Piezas tmp = new Duende();
-                                System.out.println("TURNO DE: " + j1.getNombre());
-                                System.out.println(j1.getNombre() + " Ingrese la posicion x de pieza a mover:");
-                                x1 = sc.nextInt();
-                                System.out.println(j1.getNombre() + " Ingrese la posicion y de pieza a mover:");
-                                y1 = sc.nextInt();
-                                boolean verpos1 = true;
-                                boolean verpos2 = true;
-                                while (verpos1 && verpos2) {
-                                    if (t.tablero[x1][y1] == "0") {
-                                        System.out.println("ERROR NO HAY PIEZAS AHI");
-                                        System.out.println(j1.getNombre() + " Ingrese la posicion x de pieza a mover:");
-                                        x1 = sc.nextInt();
-                                        System.out.println(j1.getNombre() + " Ingrese la posicion y de pieza a mover:");
-                                        y1 = sc.nextInt();
-                                        verpos1 = true;
-                                    } else {
-                                        verpos1 = false;
-                                        tmp = (Piezas) t.tablero[x1][y1];
-                                        if (tmp.getColor() == Color.WHITE) {
-                                            System.out.println("ERROR ESA PIEZA NO ES TUYA");
-                                            System.out.println(j1.getNombre() + " Ingrese la posicion x de pieza a mover:");
-                                            x1 = sc.nextInt();
-                                            System.out.println(j1.getNombre() + " Ingrese la posicion y de pieza a mover:");
-                                            y1 = sc.nextInt();
-                                            verpos2 = true;
-                                        } else {
-                                            verpos2 = false;
-                                            verpos1 = true;
-                                        }
-                                    }
-                                }
-                                System.out.println("Ingrese la nueva posicion x de pieza a mover: ");
-                                x2 = sc.nextInt();
-                                System.out.println("Ingrese la nueva posicion y de pieza a mover: ");
-                                y2 = sc.nextInt();
-                                Piezas tmp2 = (Piezas) t.tablero[x1][y1];
-                                while ((tmp.getColor() == tmp2.getColor())) {
-                                    System.out.println("ERROR HAY PIEZAS AHI");
+                        Tablero t = new Tablero(j1, j2);
+                        t.colocar();
+                        sc = new Scanner(System.in);
+                        int x1,
+                                x2,
+                                y1,
+                                y2;
+                        int turno = 0;
+                        char resp = 's';
+                        while (resp == 's' || resp == 'S') {
+                            switch (turno) {
+                                case 0:
+                                    t.print();
+                                    Piezas tmp = new Duende();
+                                    System.out.println("TURNO DE: " + j1.getNombre());
                                     System.out.println(j1.getNombre() + " Ingrese la posicion x de pieza a mover:");
-                                    x2 = sc.nextInt();
+                                    x1 = sc.nextInt();
                                     System.out.println(j1.getNombre() + " Ingrese la posicion y de pieza a mover:");
-                                    y2 = sc.nextInt();
-                                }
-                                j1.setPuntos(j1.getPuntos() + tmp.comer(x2, y2, t, x2, y2, Color.red, j1.getPuntos()));
-                                tmp.mover(x1, y1, t, x2, y2, Color.BLACK);
-                                turno = 1;
-                                break;
-                            case 1:
-                                t.print();
-                                Piezas tmp3 = new Duende();
-                                System.out.println("TURNO DE: " + j2.getNombre());
-                                System.out.println(j2.getNombre() + " Ingrese la posicion x de pieza a mover:");
-                                x1 = sc.nextInt();
-                                System.out.println(j2.getNombre() + " Ingrese la posicion y de pieza a mover:");
-                                y1 = sc.nextInt();
-                                boolean verpos3 = true;
-                                boolean verpos4 = true;
-                                while (verpos3 && verpos4) {
-                                    if (t.tablero[x1][y1] == "0") {
-                                        System.out.println("ERROR NO HAY PIEZAS AHI");
-                                        System.out.println(j1.getNombre() + " Ingrese la posicion x de pieza a mover:");
-                                        x1 = sc.nextInt();
-                                        System.out.println(j1.getNombre() + " Ingrese la posicion y de pieza a mover:");
-                                        y1 = sc.nextInt();
-                                        verpos3 = true;
-                                    } else {
-                                        verpos3 = false;
-                                        tmp3 = (Piezas) t.tablero[x1][y1];
-                                        if (tmp3.getColor() == Color.WHITE) {
+                                    y1 = sc.nextInt();
+                                    int cont2 = 1;
+                                    while (cont2 > 0) {
+                                        while (ver(x1, y1, t)) {
+                                            System.out.println("ERROR NO HAY PIEZAS AHI");
+                                            System.out.println(j1.getNombre() + " Ingrese la posicion x de pieza a mover:");
+                                            x1 = sc.nextInt();
+                                            System.out.println(j1.getNombre() + " Ingrese la posicion y de pieza a mover:");
+                                            y1 = sc.nextInt();
+                                            cont2++;
+                                        }
+
+                                        tmp = (Piezas) t.tablero[x1][y1];
+                                        while (vern(tmp)) {
                                             System.out.println("ERROR ESA PIEZA NO ES TUYA");
                                             System.out.println(j1.getNombre() + " Ingrese la posicion x de pieza a mover:");
                                             x1 = sc.nextInt();
                                             System.out.println(j1.getNombre() + " Ingrese la posicion y de pieza a mover:");
                                             y1 = sc.nextInt();
-                                            verpos4 = true;
-                                        } else {
-                                            verpos4 = false;
-                                            verpos3 = true;
+                                            cont2++;
+                                        }
+                                        cont2--;
+                                    }
+                                    System.out.println("Ingrese la nueva posicion x de pieza a mover: ");
+                                    x2 = sc.nextInt();
+                                    System.out.println("Ingrese la nueva posicion y de pieza a mover: ");
+                                    y2 = sc.nextInt();
+                                    if (t.tablero[x2][y2] != "0") {
+                                        Piezas tmp2 = (Piezas) t.tablero[x2][y2];
+                                        while ((tmp.getColor() == tmp2.getColor())) {
+                                            System.out.println("ERROR HAY PIEZAS AHI");
+                                            System.out.println(j1.getNombre() + " Ingrese la posicion x de pieza a mover:");
+                                            x2 = sc.nextInt();
+                                            System.out.println(j1.getNombre() + " Ingrese la posicion y de pieza a mover:");
+                                            y2 = sc.nextInt();
+                                            tmp2 = (Piezas) t.tablero[x2][y2];
                                         }
                                     }
-                                }
-                                System.out.println("Ingrese la nueva posicion x de pieza a mover: ");
-                                x2 = sc.nextInt();
-                                System.out.println("Ingrese la nueva posicion y de pieza a mover: ");
-                                y2 = sc.nextInt();
-                                Piezas tmp4 = (Piezas) t.tablero[x1][y1];
-                                while ((tmp3.getColor() == tmp4.getColor())) {
-                                    System.out.println("ERROR HAY PIEZAS AHI");
+                                    j1.setPuntos(j1.getPuntos() + tmp.comer(x2, y2, t, x2, y2, Color.red, j1.getPuntos()));
+                                    tmp.mover(x1, y1, t, x2, y2, Color.BLACK);
+                                    turno = 1;
+                                    break;
+                                case 1:
+                                    t.print();
+                                    Piezas tmp3 = new Duende();
+                                    System.out.println("TURNO DE: " + j2.getNombre());
                                     System.out.println(j2.getNombre() + " Ingrese la posicion x de pieza a mover:");
-                                    x2 = sc.nextInt();
+                                    x1 = sc.nextInt();
                                     System.out.println(j2.getNombre() + " Ingrese la posicion y de pieza a mover:");
+                                    y1 = sc.nextInt();
+                                    boolean verpos3 = true;
+                                    boolean verpos4 = true;
+                                    while (verpos3 && verpos4) {
+                                        if (t.tablero[x1][y1] == "0") {
+                                            System.out.println("ERROR NO HAY PIEZAS AHI");
+                                            System.out.println(j1.getNombre() + " Ingrese la posicion x de pieza a mover:");
+                                            x1 = sc.nextInt();
+                                            System.out.println(j1.getNombre() + " Ingrese la posicion y de pieza a mover:");
+                                            y1 = sc.nextInt();
+                                            verpos3 = true;
+                                        } else {
+                                            verpos3 = false;
+                                            tmp3 = (Piezas) t.tablero[x1][y1];
+                                            if (tmp3.getColor() == Color.WHITE) {
+                                                System.out.println("ERROR ESA PIEZA NO ES TUYA");
+                                                System.out.println(j1.getNombre() + " Ingrese la posicion x de pieza a mover:");
+                                                x1 = sc.nextInt();
+                                                System.out.println(j1.getNombre() + " Ingrese la posicion y de pieza a mover:");
+                                                y1 = sc.nextInt();
+                                                verpos4 = true;
+                                            } else {
+                                                verpos4 = false;
+                                                verpos3 = true;
+                                            }
+                                        }
+                                    }
+                                    System.out.println("Ingrese la nueva posicion x de pieza a mover: ");
+                                    x2 = sc.nextInt();
+                                    System.out.println("Ingrese la nueva posicion y de pieza a mover: ");
                                     y2 = sc.nextInt();
-                                }
-                                j2.setPuntos(j2.getPuntos() + tmp3.comer(x2, y2, t, x2, y2, Color.WHITE, j2.getPuntos()));
-                                tmp3.mover(x1, y1, t, x2, y2, Color.WHITE);
-                                turno = 0;
-                                break;
-                        }
-                        System.out.println("PUNTAJE");
-                        System.out.println(j1.getNombre() + ": " + j1.getPuntos());
-                        System.out.println(j2.getNombre() + ": " + j2.getPuntos());
-                        System.out.println("Desea Continuar?s/n");
+                                    Piezas tmp4 = (Piezas) t.tablero[x1][y1];
+                                    while ((tmp3.getColor() == tmp4.getColor())) {
+                                        System.out.println("ERROR HAY PIEZAS AHI");
+                                        System.out.println(j2.getNombre() + " Ingrese la posicion x de pieza a mover:");
+                                        x2 = sc.nextInt();
+                                        System.out.println(j2.getNombre() + " Ingrese la posicion y de pieza a mover:");
+                                        y2 = sc.nextInt();
+                                    }
+                                    j2.setPuntos(j2.getPuntos() + tmp3.comer(x2, y2, t, x2, y2, Color.WHITE, j2.getPuntos()));
+                                    tmp3.mover(x1, y1, t, x2, y2, Color.WHITE);
+                                    turno = 0;
+                                    break;
+                            }
+                            System.out.println("PUNTAJE");
+                            System.out.println(j1.getNombre() + ": " + j1.getPuntos());
+                            System.out.println(j2.getNombre() + ": " + j2.getPuntos());
+                            System.out.println("Desea Continuar?s/n");
 
-                        resp = st.next().charAt(0);
+                            resp = st.next().charAt(0);
+                        }
                     }
                     break;
 
@@ -286,4 +289,17 @@ public class Lab4_AngelTorres_JonrryEnamorado {
         }//Final Try-Catch menú principal*/
     }
 
+    public static boolean ver(int x1, int y1, Tablero t) {
+        if (t.tablero[x1][y1] == "0") {
+            return true;
+        }
+        return false;
+    }
+
+    public static boolean vern(Piezas tmp) {
+        if (tmp.getColor() == Color.WHITE) {
+            return true;
+        }
+        return false;
+    }
 }
