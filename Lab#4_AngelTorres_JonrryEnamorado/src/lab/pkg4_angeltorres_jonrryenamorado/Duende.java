@@ -82,6 +82,15 @@ public class Duende extends Piezas {
             }
 
         }
-        return 0;
+        else{
+           if (!validarb(x, y, x2, y2)) {
+                return 0;
+            } else if (((Duende) t.tablero[x2][y2]).getColor() != ((Duende) t.tablero[x][y]).getColor()) {
+                return 1;
+            } else {
+                return 0;
+            } 
+        }
+       
     }
 }
