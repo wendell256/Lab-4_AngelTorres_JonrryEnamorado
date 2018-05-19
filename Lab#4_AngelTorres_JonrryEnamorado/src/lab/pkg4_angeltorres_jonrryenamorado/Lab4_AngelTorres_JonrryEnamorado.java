@@ -213,7 +213,7 @@ public class Lab4_AngelTorres_JonrryEnamorado {
                                             }
                                          }
                                     }
-                                    j1.setPuntos(j1.getPuntos() + tmp.comer(x2, y2, t, x2, y2, Color.red, j1.getPuntos()));
+                                    j1.setPuntos(j1.getPuntos() + tmp.comer(x2, y2, t, x2, y2, Color.BLACK, j1.getPuntos()));
                                     tmp.mover(x1, y1, t, x2, y2, Color.BLACK);
                                     turno = 1;
                                     break;
