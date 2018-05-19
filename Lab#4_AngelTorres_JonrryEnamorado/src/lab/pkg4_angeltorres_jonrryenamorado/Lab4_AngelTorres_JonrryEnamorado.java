@@ -304,7 +304,7 @@ public class Lab4_AngelTorres_JonrryEnamorado {
         return false;
     }
     public static boolean verb(Piezas tmp) {
-        if (tmp.getColor() == Color.WHITE) {
+        if (tmp.getColor() == Color.BLACK) {
             return true;
         }
         return false;

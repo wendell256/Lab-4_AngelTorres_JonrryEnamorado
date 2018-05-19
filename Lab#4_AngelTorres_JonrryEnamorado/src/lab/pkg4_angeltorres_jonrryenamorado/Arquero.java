@@ -46,7 +46,7 @@ public class Arquero extends Piezas {
     
     @Override
     public int comer(int x, int y, Tablero t, int x2, int y2, Color c, int p) {
-        if (c == Color.BLACK) {
+        
             if (!validarn(x, y, x2, y2)) {
                 return 0;
             } else if (((Arquero) t.tablero[x2][y2]).getColor() != ((Arquero) t.tablero[x][y]).getColor()) {
@@ -55,8 +55,8 @@ public class Arquero extends Piezas {
                 return 0;
             }
 
-        }
-        return 0;
+        
+       
     }
 
 }
