@@ -208,8 +208,10 @@ public class Lab4_AngelTorres_JonrryEnamorado {
                                             x2 = sc.nextInt();
                                             System.out.println(j1.getNombre() + " Ingrese la posicion y de pieza a mover:");
                                             y2 = sc.nextInt();
+                                            if (t.tablero[x2][y2] != "0"){
                                             tmp2 = (Piezas) t.tablero[x2][y2];
-                                        }
+                                            }
+                                         }
                                     }
                                     j1.setPuntos(j1.getPuntos() + tmp.comer(x2, y2, t, x2, y2, Color.red, j1.getPuntos()));
                                     tmp.mover(x1, y1, t, x2, y2, Color.BLACK);
@@ -223,43 +225,42 @@ public class Lab4_AngelTorres_JonrryEnamorado {
                                     x1 = sc.nextInt();
                                     System.out.println(j2.getNombre() + " Ingrese la posicion y de pieza a mover:");
                                     y1 = sc.nextInt();
-                                    boolean verpos3 = true;
-                                    boolean verpos4 = true;
-                                    while (verpos3 && verpos4) {
-                                        if (t.tablero[x1][y1] == "0") {
+                                    int cont3 = 1;
+                                    while (cont3 > 0) {
+                                        while (ver(x1, y1, t)) {
                                             System.out.println("ERROR NO HAY PIEZAS AHI");
                                             System.out.println(j1.getNombre() + " Ingrese la posicion x de pieza a mover:");
                                             x1 = sc.nextInt();
                                             System.out.println(j1.getNombre() + " Ingrese la posicion y de pieza a mover:");
                                             y1 = sc.nextInt();
-                                            verpos3 = true;
-                                        } else {
-                                            verpos3 = false;
-                                            tmp3 = (Piezas) t.tablero[x1][y1];
-                                            if (tmp3.getColor() == Color.WHITE) {
-                                                System.out.println("ERROR ESA PIEZA NO ES TUYA");
-                                                System.out.println(j1.getNombre() + " Ingrese la posicion x de pieza a mover:");
-                                                x1 = sc.nextInt();
-                                                System.out.println(j1.getNombre() + " Ingrese la posicion y de pieza a mover:");
-                                                y1 = sc.nextInt();
-                                                verpos4 = true;
-                                            } else {
-                                                verpos4 = false;
-                                                verpos3 = true;
-                                            }
+                                            cont3++;
                                         }
+                                        
+                                        tmp3 = (Piezas) t.tablero[x1][y1];
+                                        while (verb(tmp3)) {
+                                            System.out.println("ERROR ESA PIEZA NO ES TUYA");
+                                            System.out.println(j1.getNombre() + " Ingrese la posicion x de pieza a mover:");
+                                            x1 = sc.nextInt();
+                                            System.out.println(j1.getNombre() + " Ingrese la posicion y de pieza a mover:");
+                                            y1 = sc.nextInt();
+                                            cont3++;
+                                        }
+                                        cont3--;
                                     }
                                     System.out.println("Ingrese la nueva posicion x de pieza a mover: ");
                                     x2 = sc.nextInt();
                                     System.out.println("Ingrese la nueva posicion y de pieza a mover: ");
                                     y2 = sc.nextInt();
-                                    Piezas tmp4 = (Piezas) t.tablero[x1][y1];
-                                    while ((tmp3.getColor() == tmp4.getColor())) {
-                                        System.out.println("ERROR HAY PIEZAS AHI");
-                                        System.out.println(j2.getNombre() + " Ingrese la posicion x de pieza a mover:");
-                                        x2 = sc.nextInt();
-                                        System.out.println(j2.getNombre() + " Ingrese la posicion y de pieza a mover:");
-                                        y2 = sc.nextInt();
+                                    if (t.tablero[x2][y2] != "0") {
+                                        Piezas tmp2 = (Piezas) t.tablero[x2][y2];
+                                        while ((tmp3.getColor() == tmp2.getColor())) {
+                                            System.out.println("ERROR HAY PIEZAS AHI");
+                                            System.out.println(j1.getNombre() + " Ingrese la posicion x de pieza a mover:");
+                                            x2 = sc.nextInt();
+                                            System.out.println(j1.getNombre() + " Ingrese la posicion y de pieza a mover:");
+                                            y2 = sc.nextInt();
+                                            tmp2 = (Piezas) t.tablero[x2][y2];
+                                        }
                                     }
                                     j2.setPuntos(j2.getPuntos() + tmp3.comer(x2, y2, t, x2, y2, Color.WHITE, j2.getPuntos()));
                                     tmp3.mover(x1, y1, t, x2, y2, Color.WHITE);
@@ -297,6 +298,12 @@ public class Lab4_AngelTorres_JonrryEnamorado {
     }
 
     public static boolean vern(Piezas tmp) {
+        if (tmp.getColor() == Color.WHITE) {
+            return true;
+        }
+        return false;
+    }
+    public static boolean verb(Piezas tmp) {
         if (tmp.getColor() == Color.WHITE) {
             return true;
         }
